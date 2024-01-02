@@ -1,0 +1,21 @@
+class Solution {
+public:
+    vector<vector<int>> findMatrix(vector<int>& nums) {
+       vector<vector<int>> ans;
+
+       unordered_map<int,int> mp;
+
+       for(auto &ele:nums)
+       {
+           int freq = mp[ele];
+
+           if(freq == ans.size())
+           ans.push_back({});
+
+           ans[freq].push_back(ele);
+           mp[ele]++;
+       }
+
+       return ans;
+    }
+};
